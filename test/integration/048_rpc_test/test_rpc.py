@@ -949,6 +949,7 @@ class TestRPCServerProjects(HasRPCServer):
     def test_deps_postgres(self):
         self.async_query('deps').json()
 
+    @mark.skip(reason='cli_args + deps not supported for now')
     @use_profile('postgres')
     def test_deps_postgres_cli(self):
         self.async_query('cli_args', cli='deps').json()
@@ -1155,6 +1156,7 @@ class TestRPCServerDeps(HasRPCServer):
 
         self._check_deps_ok(status)
 
+    @mark.skip(reason='cli_args + deps not supported for now')
     @use_profile('postgres')
     def test_deps_cli_compilation_postgres(self):
         status = self._check_start_predeps()
